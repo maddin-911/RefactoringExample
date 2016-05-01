@@ -25,19 +25,20 @@ class Customer {
             result += "\t" + each.getMovie().getTitle()+ "\t" + "\t" + each.getDaysRented() + "\t" + String.valueOf(each.amountFor(each)) + "\n";
         }
         //add footer lines
-        result += "Amount owed is " + String.valueOf(getAmount()) + "\n";
+        result += "Amount owed is " + String.valueOf(getTotalAmount()) + "\n";
         result += "You earned " + String.valueOf(getTotalFrequentRenterPoints()) + " frequent renter points";
         return result;
     }
     
-    private double getAmount(){
+    private double getTotalAmount(){
         double total=0;
         Enumeration enum_rentals = rentals.elements();
         while (enum_rentals.hasMoreElements()) {
             double thisAmount = 0;
             Rental each = (Rental) enum_rentals.nextElement();
             //determine amounts for each line
-            thisAmount = each.amountFor(each);
+            Movie RentalMovie = each.getMovie();
+            thisAmount = RentalMovie.getCharge(each.getDaysRented());
             //show figures for this rental
             total += thisAmount;
         }
