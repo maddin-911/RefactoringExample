@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package refactoring;
 
 import org.junit.After;
@@ -21,34 +16,15 @@ public class RentalTest {
     public RentalTest() {
     }
     
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
-    }
-
-    /**
-     * Test of getDaysRented method, of class Rental.
-     */
     @Test
     public void testGetDaysRented() {
         System.out.println("getDaysRented");
-        Rental instance = null;
-        int expResult = 0;
+        Movie m1 = new Movie("movie1", 1);
+        Rental instance = new Rental(m1,2);
+        int expResult = 2;
         int result = instance.getDaysRented();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
     }
 
     /**
@@ -57,12 +33,12 @@ public class RentalTest {
     @Test
     public void testGetMovie() {
         System.out.println("getMovie");
-        Rental instance = null;
-        Movie expResult = null;
+        Movie m1 = new Movie("movie1", 1);
+        Rental instance = new Rental(m1,2);
+        String expResult = "movie1";
         Movie result = instance.getMovie();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        String resultname=result.getTitle();
+        assertEquals(expResult, resultname);
     }
     
 }
