@@ -27,8 +27,8 @@ public class ProgramTest {
         expected = "Rental Record for joe\n" +
 "	Title		Days	Amount\n" +
 "	movie1		10	30.0\n" +
-"	movie2		5	4.5\n" +
-"Amount owed is 34.5\n" +
+"	movie2		5	3.0\n" +
+"Amount owed is 33.0\n" +
 "You earned 3 frequent renter points";
         assertEquals(expected, result);
     }
